@@ -7,7 +7,7 @@
     COPY package.json package-lock.json ./
     RUN npm install --frozen-lockfile
     
-    # Copy source files
+    # Copy source file
     COPY . .
     
     # Build Next.js app

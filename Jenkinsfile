@@ -7,15 +7,14 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = 'your-docker-username/your-nextjs-app'
+        DOCKER_IMAGE = 'boulaz2002/sale_f'
         DOCKER_TAG = 'latest'
-        KUBE_CONFIG = credentials('kubeconfig')
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
+                git branch: 'main', url: 'https://github.com/Boulaz2002/sales_f.git'
             }
         }
 
@@ -30,8 +29,16 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    // Use the Docker Hub credentials stored in Jenkins
+                    withCredentials([usernamePassword(
+                        credentialsId: 'docker-hub-credentials', // ID of the credentials
+                        usernameVariable: 'DOCKER_USERNAME',      // Environment variable for username
+                        passwordVariable: 'DOCKER_PASSWORD'      // Environment variable for password
+                    )]) {
+                        // Log in to Docker Hub
                         sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                        
+                        // Push the Docker image to Docker Hub
                         sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
                     }
                 }

@@ -30,7 +30,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    // Use the Docker Hub credentials stored in Jenkins
+                    // Use the Docker Hub credentials stored in Jenkin
                     withCredentials([usernamePassword(
                         credentialsId: 'docker-credential', // ID of the credentials
                         usernameVariable: 'DOCKER_USERNAME',      // Environment variable for username

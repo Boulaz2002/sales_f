@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: multi-service-ingress
+  namespace: ingress-nginx  # Ingress should be in the same namespace as the controller
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: app1.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-app1
+                port:
+                  number: 80
+                namespace: app1-namespace  # Specify the namespace
+    - host: app2.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-app2
+                port:
+                  number: 80
+                namespace: app2-namespace  # Specify the namespace

@@ -9,6 +9,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'boulaz2002/sale_f'
         DOCKER_TAG = 'latest'
+        KUBE_CONFIG = credentials('k8s')
     }
 
     stages {

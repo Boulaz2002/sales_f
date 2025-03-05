@@ -30,7 +30,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    // Use the Docker Hub credentials stored in Jenkins
+                    // Use the Docker Hub credentials stored in Jenkin
                     withCredentials([usernamePassword(
                         credentialsId: 'docker_credential', // ID of the credentials
                         usernameVariable: 'DOCKER_USERNAME',      // Environment variable for username
@@ -50,6 +50,7 @@ pipeline {
             steps {
                 script {
                     withEnv(["KUBECONFIG=${env.KUBE_CONFIG}"]) {
+                        sh "kubectl apply -f k8s/vip-lb.yaml"
                         sh "kubectl apply -f k8s/deployment.yaml"
                         sh "kubectl apply -f k8s/service.yaml"
                         // sh "kubectl apply -f kubernetes/ingress.yaml" // Optiona

@@ -45,17 +45,17 @@ pipeline {
             }
         }
 
-        // stage('Deploy to Kubernetes') {
-        //     steps {
-        //         script {
-        //             withEnv(["KUBECONFIG=${env.KUBE_CONFIG}"]) {
-        //                 sh "kubectl apply -f kubernetes/deployment.yaml"
-        //                 sh "kubectl apply -f kubernetes/service.yaml"
-        //                 sh "kubectl apply -f kubernetes/ingress.yaml" // Optiona
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    withEnv(["KUBECONFIG=${env.KUBE_CONFIG}"]) {
+                        sh "kubectl apply -f kubernetes/deployment.yaml"
+                        sh "kubectl apply -f kubernetes/service.yaml"
+                        // sh "kubectl apply -f kubernetes/ingress.yaml" // Optiona
+                    }
+                }
+            }
+        }
     }
 
     post {

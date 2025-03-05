@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-sales
+  labels:
+    app: nextjs-sales
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nextjs-sales
+  template:
+    metadata:
+      labels:
+        app: nextjs-sales
+    spec:
+      containers:
+        - name: nextjs-sales
+          image: boulaz2002/sale_f:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: "production"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

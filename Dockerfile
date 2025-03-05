@@ -10,7 +10,7 @@
     # Copy source files
     COPY . .
     
-    # Build Next.js ap
+    # Build Next.js app
     RUN npm run build
     
     # ---- Production Stage ----

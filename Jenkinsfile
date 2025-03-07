@@ -50,14 +50,19 @@ pipeline {
             steps {
                 script {
                     withEnv(["KUBECONFIG=${env.KUBE_CONFIG}"]) {
-                        sh "kubectl apply -f k8s/vip-lb.yaml"
-                        sh "kubectl apply -f k8s/deployment.yaml"
-                        sh "kubectl apply -f k8s/service.yaml"
-                        // sh "kubectl apply -f kubernetes/ingress.yaml" // Optiona
+                        sh "kubectl apply --prune -l app=nextjs-sales -f k8s/vip-lb.yaml"
+                        sh "kubectl apply --prune -l app=nextjs-sales -f k8s/deployment.yaml"
+                        sh "kubectl apply --prune -l app=nextjs-sales -f k8s/service.yaml"
+                        
+                        // Restart deployment only if changes are detected
+                        if (sh(script: "kubectl diff -f k8s/deployment.yaml", returnStatus: true) == 0) {
+                            sh "kubectl rollout restart deployment nextjs-sales"
+                        }
                     }
                 }
             }
         }
+
     }
 
     post {

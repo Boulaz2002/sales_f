@@ -3,19 +3,19 @@ kind: DaemonSet
 metadata:
   creationTimestamp: null
   labels:
-    app.kubernetes.io/name: kube-vip-ds
+    app.kubernetes.io/name: kube-vip-rancher
     app.kubernetes.io/version: v0.8.9
-  name: kube-vip-ds
+  name: kube-vip-rancher
   namespace: kube-system
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: kube-vip-ds
+      app.kubernetes.io/name: kube-vip-rancher
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app.kubernetes.io/name: kube-vip-ds
+        app.kubernetes.io/name: kube-vip-rancher
         app.kubernetes.io/version: v0.8.9
     spec:
       serviceAccountName: kube-vip
@@ -26,7 +26,7 @@ spec:
         - name: vip_arp
           value: "true"
         - name: port
-          value: "80"
+          value: "443"
         - name: vip_nodename
           valueFrom:
             fieldRef:
@@ -52,7 +52,7 @@ spec:
         - name: vip_retryperiod
           value: "1"
         - name: address
-          value: 192.168.1.91
+          value: 192.168.1.92
         - name: prometheus_server
           value: :9112
         image: ghcr.io/kube-vip/kube-vip:v0.8.9

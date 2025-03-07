@@ -5,7 +5,6 @@ export default function Hero() {
   return (
     <div>
       <header className="fixed top-0 left-0 w-full bg-black/50 text-white py-4 px-6 flex justify-between items-center z-50">
-        <h2 className="text-xl font-bold">Benjamin Boule</h2>
         <nav>
           <ul className="flex space-x-6">
             <li><Link href="#about"><span className="cursor-pointer">About</span></Link></li>

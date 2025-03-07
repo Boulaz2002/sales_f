@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <div>
-      <header className="fixed top-0 left-0 w-full bg-black bg-opacity-0 text-white py-4 px-6 flex justify-between items-center z-50">
+      <header className="fixed top-0 left-0 w-full bg-black/50 text-white py-4 px-6 flex justify-between items-center z-50">
         <h2 className="text-xl font-bold">Benjamin Boule</h2>
         <nav>
           <ul className="flex space-x-6">
@@ -17,7 +17,7 @@ export default function Hero() {
       </header>
 
       <div className="relative h-screen flex flex-col items-center justify-center text-white text-center bg-cover bg-center" style={{ backgroundImage: "url('/landscape.png')" }}>
-        <div className="bg-black bg-opacity-50 p-6 rounded-lg">
+        <div className="bg-black/50 p-6 rounded-lg">
           <h1 className="text-5xl font-bold">I&apos;m Benjamin Boule.</h1>
           <p className="mt-4 text-lg">
           I&apos;m a Maryland-based <span className="font-bold">DevOps/Kubernetes Engineer</span>, currently working at <span className="font-bold">Techsecom</span>.

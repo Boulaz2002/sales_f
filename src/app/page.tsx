@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="bg-black bg-opacity-50 p-6 rounded-lg">
           <h1 className="text-5xl font-bold">I&apos;m Benjamin Boule.</h1>
           <p className="mt-4 text-lg">
-            I'm a Maryland-based <span className="font-bold">DevOps/Kubernetes Engineer</span>, currently working at <span className="font-bold">Techsecom</span>.
+          I&apos;m a Maryland-based <span className="font-bold">DevOps/Kubernetes Engineer</span>, currently working at <span className="font-bold">Techsecom</span>.
           </p>
           <p className="mt-4 text-lg">
             In my free time, you can catch me automating infrastructure, optimizing cloud deployments, or exploring new DevOps technologies.

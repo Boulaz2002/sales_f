@@ -18,7 +18,7 @@ export default function Hero() {
 
       <div className="relative h-screen flex flex-col items-center justify-center text-white text-center bg-cover bg-center" style={{ backgroundImage: "url('/landscape.png')" }}>
         <div className="bg-black bg-opacity-50 p-6 rounded-lg">
-          <h1 className="text-5xl font-bold">I'm Benjamin Boule.</h1>
+          <h1 className="text-5xl font-bold">I&apos;m Benjamin Boule.</h1>
           <p className="mt-4 text-lg">
             I'm a Maryland-based <span className="font-bold">DevOps/Kubernetes Engineer</span>, currently working at <span className="font-bold">Techsecom</span>.
           </p>

@@ -4,11 +4,11 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <div>
-      <header className="fixed top-0 left-0 w-full bg-black/50 text-white py-4 px-6 flex justify-between items-center z-50">
+      <header className="fixed top-0 left-0 w-full bg-black/50 text-white py-4 px-6 flex justify-center items-center z-50">
         <nav>
           <ul className="flex space-x-6">
             <li><Link href="#about"><span className="cursor-pointer">About</span></Link></li>
-            <li><Link href="#resume"><span className="cursor-pointer">Resume</span></Link></li>
+            <li><Link href="/resume"><span className="cursor-pointer">Resume</span></Link></li>
             <li><Link href="#portfolio"><span className="cursor-pointer">Portfolio</span></Link></li>
             <li><Link href="#contact"><span className="cursor-pointer">Contact</span></Link></li>
           </ul>
